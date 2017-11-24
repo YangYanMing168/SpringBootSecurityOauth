@@ -1,0 +1,41 @@
+#server:
+#  port: 80
+
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+# 数据库访问配置
+# 主数据源，默认的spring:
+spring:
+  output:
+    ansi:
+      enabled: always
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    open-in-view: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/route_problem?autoReconnect=true&useSSL=false&characterEncoding=utf-8
+    username: root
+    password: 449440
+    druid:
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      asyncInit: true
